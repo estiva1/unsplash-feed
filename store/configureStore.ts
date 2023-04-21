@@ -19,6 +19,7 @@ export default function configureStore(
     composeEnhancers(applyMiddleware(sagaMiddleware))
   );
 
+  
   sagaMiddleware.run(rootSaga);
   return store;
 }

@@ -25,7 +25,7 @@ const mergeArrays = (...arrays: any[]) => {
   return uniqueArray;
 };
 
-const reducer: Reducer<ImageState> = (state = initialState, action) => {
+const imagesReducer: Reducer<ImageState> = (state = initialState, action) => {
   switch (action.type) {
     case IMAGES_ACTION_TYPES.FETCH_IMAGES_START: {
       return { ...state, loading: true };
@@ -47,4 +47,4 @@ const reducer: Reducer<ImageState> = (state = initialState, action) => {
   }
 };
 
-export { reducer as imagesReducer };
+export default imagesReducer;

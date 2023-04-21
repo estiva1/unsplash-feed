@@ -5,7 +5,10 @@ export const initialState: FavoritesState = {
   data: [],
 };
 
-const reducer: Reducer<FavoritesState> = (state = initialState, action) => {
+const favoritesReducer: Reducer<FavoritesState> = (
+  state = initialState,
+  action
+) => {
   switch (action.type) {
     case FAVORITES_ACTION_TYPES.ADD_FAVORITE: {
       return { ...state, data: [...state.data, action.payload] };
@@ -22,4 +25,4 @@ const reducer: Reducer<FavoritesState> = (state = initialState, action) => {
   }
 };
 
-export { reducer as favoritesReducer };
+export default favoritesReducer;
