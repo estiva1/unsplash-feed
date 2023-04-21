@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { View } from "../components/Themed";
 import { getImageSrc } from "../utils/images/images.utils";
-import { ImageQualityType } from "../store/images/types";
+import { ImageQualityType } from "../store/images/images.types";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import ImageViewer from "react-native-image-zoom-viewer";

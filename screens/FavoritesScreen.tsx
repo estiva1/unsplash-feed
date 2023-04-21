@@ -3,8 +3,8 @@ import { Card } from "../components/Card";
 import { useSelector } from "react-redux";
 
 import { Text, View } from "../components/Themed";
-import { ApplicationState } from "../store";
-import { UnsplashItem } from "../store/images/types";
+import { ApplicationState } from "../store/root-reducer";
+import { UnsplashItem } from "../store/images/images.types";
 
 export default function FavoitesScreen(params: any) {
   const favorites = useSelector(

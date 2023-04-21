@@ -9,12 +9,15 @@ import {
   GestureResponderEvent,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../store/favorites/actions";
+import {
+  addFavorite,
+  removeFavorite,
+} from "../store/favorites/favorites.actions";
 import { Text, View } from "../components/Themed";
 import { Ionicons } from "@expo/vector-icons";
-import { UnsplashItem } from "../store/images/types";
+import { UnsplashItem } from "../store/images/images.types";
 import { getImageSrc } from "../utils/images/images.utils";
-import { ApplicationState } from "../store";
+import { ApplicationState } from "../store/root-reducer";
 
 export function Card(props: {
   key: string;
@@ -58,7 +61,6 @@ export function Card(props: {
 
   useEffect(() => {
     return () => {
-      // Anything in here is fired on component unmount.
       isUnmounted = true;
     };
   }, []);

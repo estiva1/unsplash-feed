@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { FavoritesState, FavoritesActionTypes } from "./types";
+import { FavoritesState, FAVORITES_ACTION_TYPES } from "./favorites.types";
 
 export const initialState: FavoritesState = {
   data: [],
@@ -7,10 +7,10 @@ export const initialState: FavoritesState = {
 
 const reducer: Reducer<FavoritesState> = (state = initialState, action) => {
   switch (action.type) {
-    case FavoritesActionTypes.ADD_FAVORITE: {
+    case FAVORITES_ACTION_TYPES.ADD_FAVORITE: {
       return { ...state, data: [...state.data, action.payload] };
     }
-    case FavoritesActionTypes.REMOVE_FAVORITE: {
+    case FAVORITES_ACTION_TYPES.REMOVE_FAVORITE: {
       return {
         ...state,
         data: state.data.filter((element) => element !== action.payload),
@@ -22,6 +22,4 @@ const reducer: Reducer<FavoritesState> = (state = initialState, action) => {
   }
 };
 
-// Instead of using default export, we use named exports. That way we can group these exports
-// inside the `index.js` folder.
 export { reducer as favoritesReducer };

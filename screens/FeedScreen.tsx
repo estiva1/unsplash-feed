@@ -4,9 +4,9 @@ import { Card } from "../components/Card";
 import { useSelector } from "react-redux";
 
 import { View } from "../components/Themed";
-import { ApplicationState } from "../store";
-import { fetchImagesStart } from "../store/images/actions";
-import { UnsplashItem } from "../store/images/types";
+import { ApplicationState } from "../store/root-reducer";
+import { fetchImagesStart } from "../store/images/images.actions";
+import { UnsplashItem } from "../store/images/images.types";
 
 export default function FeedScreen(params: any) {
   const dispatch = useDispatch();

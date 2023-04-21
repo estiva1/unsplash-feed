@@ -1,6 +1,6 @@
 import { all, call, fork, put, takeEvery } from "typed-redux-saga";
-import { IMAGES_ACTION_TYPES } from "./types";
-import { fetchImagesFailed, fetchImagesSuccess } from "./actions";
+import { IMAGES_ACTION_TYPES } from "./images.types";
+import { fetchImagesFailed, fetchImagesSuccess } from "./images.actions";
 import { fetchImages } from "../../utils/api";
 
 export function* fetchImagesAsync() {

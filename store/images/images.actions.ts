@@ -1,5 +1,5 @@
 //import { action } from "typesafe-actions";
-import { IMAGES_ACTION_TYPES, UnsplashItem } from "./types";
+import { IMAGES_ACTION_TYPES, UnsplashItem } from "./images.types";
 
 import {
   Action,

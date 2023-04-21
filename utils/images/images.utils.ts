@@ -1,4 +1,4 @@
-import { ImageQualityType, UnsplashItem } from "../../store/images/types";
+import { ImageQualityType, UnsplashItem } from "../../store/images/images.types";
 
 export const getImageSrc = (image: UnsplashItem, type?: ImageQualityType) => {
   let src = "";

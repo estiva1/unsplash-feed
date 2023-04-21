@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { ImageState, IMAGES_ACTION_TYPES, UnsplashItem } from "./types";
+import { ImageState, IMAGES_ACTION_TYPES, UnsplashItem } from "./images.types";
 
 export const initialState: ImageState = {
   data: [],
