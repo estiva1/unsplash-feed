@@ -3,12 +3,14 @@ import {
   DefaultTheme,
   DarkTheme,
 } from "@react-navigation/native";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { useLayoutEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ColorSchemeName } from "react-native";
 
 import ViewImageScreen from "../screens/ViewImageScreen";
 import { RootStackParamList } from "../types";
-import BottomTabNavigator from "./BottomTabNavigator";
+import { BottomTabNavigator } from "./BottomTabNavigator";
 
 export default function Navigation({
   colorScheme,
@@ -26,7 +28,8 @@ export default function Navigation({
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
+const RootNavigator = () => {
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Root" component={BottomTabNavigator} />

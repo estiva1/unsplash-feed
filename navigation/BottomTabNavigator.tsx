@@ -1,5 +1,6 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import FeedScreen from "../screens/FeedScreen";
@@ -9,22 +10,21 @@ import {
   FeedParamList,
   FavoritesParamList,
 } from "../types";
+import { useLayoutEffect } from "react";
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
-export default function BottomTabNavigator() {
-
+export const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
+      screenOptions={{ headerShown: false }}
     >
       <Tab.Screen
         name="Feed"
         component={FeedNavigator}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="home" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <Tab.Screen
@@ -38,18 +38,22 @@ export default function BottomTabNavigator() {
       />
     </Tab.Navigator>
   );
-}
+};
 
-function TabBarIcon(props: { name: string; color: string }) {
+const TabBarIcon = (props: { name: string; color: string }) => {
   return <Ionicons size={24} style={{ marginBottom: -3 }} {...props} />;
-}
-
+};
 
 const FeedStack = createStackNavigator<FeedParamList>();
 
-function FeedNavigator() {
+const FeedNavigator = () => {
   return (
-    <FeedStack.Navigator>
+    <FeedStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: { backgroundColor: "#ccbfaa" },
+      }}
+    >
       <FeedStack.Screen
         name="FeedScreen"
         component={FeedScreen}
@@ -57,13 +61,18 @@ function FeedNavigator() {
       />
     </FeedStack.Navigator>
   );
-}
+};
 
 const FavoritesStack = createStackNavigator<FavoritesParamList>();
 
-function FavoritesNavigator() {
+const FavoritesNavigator = () => {
   return (
-    <FavoritesStack.Navigator>
+    <FavoritesStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: { backgroundColor: "#ccbfaa" },
+      }}
+    >
       <FavoritesStack.Screen
         name="FavoritesScreen"
         component={FavoritesScreen}
@@ -71,4 +80,4 @@ function FavoritesNavigator() {
       />
     </FavoritesStack.Navigator>
   );
-}
+};

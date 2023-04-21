@@ -9,20 +9,20 @@ import {
 
 export type AddFavorite = ActionWithPayload<
   FAVORITES_ACTION_TYPES.ADD_FAVORITE,
-  UnsplashItem[]
+  UnsplashItem
 >;
 
 export type RemoveFavorite = ActionWithPayload<
   FAVORITES_ACTION_TYPES.REMOVE_FAVORITE,
-  UnsplashItem[]
+  UnsplashItem
 >;
 
 export const addFavorite = withMatcher(
-  (imagesArray: UnsplashItem[]): AddFavorite =>
+  (imagesArray: UnsplashItem): AddFavorite =>
     createAction(FAVORITES_ACTION_TYPES.ADD_FAVORITE, imagesArray)
 );
 
 export const removeFavorite = withMatcher(
-  (imagesArray: UnsplashItem[]): RemoveFavorite =>
+  (imagesArray: UnsplashItem): RemoveFavorite =>
     createAction(FAVORITES_ACTION_TYPES.REMOVE_FAVORITE, imagesArray)
 );
