@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { View } from "../components/Themed";
-import { getImageSrc } from "../utils/images";
-import { ImageQualityType } from "../state/images/types";
+import { getImageSrc } from "../utils/images/images.utils";
+import { ImageQualityType } from "../store/images/types";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import ImageViewer from "react-native-image-zoom-viewer";
@@ -11,6 +11,7 @@ export default function ViewImageScreen(params: any) {
 
   return (
     <View style={styles.container}>
+      {/* Hide status bar */}
       <StatusBar hidden={true} />
 
       <View
@@ -38,6 +39,9 @@ export default function ViewImageScreen(params: any) {
       <ImageViewer
         imageUrls={[{ url: getImageSrc(item, ImageQualityType.HIGH_QUALITY) }]}
         useNativeDriver={true}
+        renderIndicator={() => {
+          return <View></View>;
+        }}
         style={{ position: "absolute", width: "100%", height: "100%" }}
       />
     </View>

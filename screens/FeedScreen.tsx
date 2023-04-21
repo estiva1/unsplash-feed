@@ -4,15 +4,15 @@ import { Card } from "../components/Card";
 import { useSelector } from "react-redux";
 
 import { View } from "../components/Themed";
-import { ApplicationState } from "../state";
-import { fetchRequest } from "../state/images/actions";
-import { UnsplashItem } from "../state/images/types";
+import { ApplicationState } from "../store";
+import { fetchImagesStart } from "../store/images/actions";
+import { UnsplashItem } from "../store/images/types";
 
 export default function FeedScreen(params: any) {
   const dispatch = useDispatch();
 
   const fetchImages = () => {
-    dispatch(fetchRequest());
+    dispatch(fetchImagesStart());
   };
 
   const images = useSelector((state: ApplicationState) => state.images.data);
@@ -48,7 +48,7 @@ export default function FeedScreen(params: any) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 15,
+    paddingTop: 20,
     flex: 1,
   },
   cards: {

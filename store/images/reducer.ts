@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { ImageState, ImagesActionTypes, UnsplashItem } from "./types";
+import { ImageState, IMAGES_ACTION_TYPES, UnsplashItem } from "./types";
 
 export const initialState: ImageState = {
   data: [],
@@ -27,10 +27,10 @@ const mergeArrays = (...arrays: any[]) => {
 
 const reducer: Reducer<ImageState> = (state = initialState, action) => {
   switch (action.type) {
-    case ImagesActionTypes.FETCH_REQUEST: {
+    case IMAGES_ACTION_TYPES.FETCH_IMAGES_START: {
       return { ...state, loading: true };
     }
-    case ImagesActionTypes.FETCH_SUCCESS: {
+    case IMAGES_ACTION_TYPES.FETCH_IMAGES_SUCCESS: {
       /**
        * merge arrays instead of nesting them like [[<images>], [<images>]]
        */
@@ -38,7 +38,7 @@ const reducer: Reducer<ImageState> = (state = initialState, action) => {
 
       return { ...state, loading: false, data: newState };
     }
-    case ImagesActionTypes.FETCH_ERROR: {
+    case IMAGES_ACTION_TYPES.FETCH_IMAGES_FAILED: {
       return { ...state, loading: false, errors: action.payload };
     }
     default: {
@@ -47,6 +47,4 @@ const reducer: Reducer<ImageState> = (state = initialState, action) => {
   }
 };
 
-// Instead of using default export, we use named exports. That way we can group these exports
-// inside the `index.js` folder.
 export { reducer as imagesReducer };

@@ -9,12 +9,12 @@ import {
   GestureResponderEvent,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../state/favorites/actions";
+import { addFavorite, removeFavorite } from "../store/favorites/actions";
 import { Text, View } from "../components/Themed";
 import { Ionicons } from "@expo/vector-icons";
-import { UnsplashItem } from "../state/images/types";
-import { getImageSrc } from "../utils/images";
-import { ApplicationState } from "../state";
+import { UnsplashItem } from "../store/images/types";
+import { getImageSrc } from "../utils/images/images.utils";
+import { ApplicationState } from "../store";
 
 export function Card(props: {
   key: string;

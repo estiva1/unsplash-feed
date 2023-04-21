@@ -1,7 +1,7 @@
-export enum ImagesActionTypes {
-  FETCH_REQUEST = "@@IMAGES/FETCH_REQUEST",
-  FETCH_SUCCESS = "@@IMAGES/FETCH_SUCCESS",
-  FETCH_ERROR = "@@IMAGES/FETCH_ERROR",
+export enum IMAGES_ACTION_TYPES {
+  FETCH_IMAGES_START = "@@IMAGES/FETCH_IMAGES_START",
+  FETCH_IMAGES_SUCCESS = "@@IMAGES/FETCH_IMAGES_SUCCESS",
+  FETCH_IMAGES_FAILED = "@@IMAGES/FETCH_IMAGES_FAILED",
 }
 
 export enum ImageQualityType {
@@ -50,6 +50,7 @@ export interface UnsplashItem extends ApiResponse {
     };
   };
   current_user_collections: [
+    // The *current user's* collections that this photo belongs to.
     {
       id: number;
       title: string;
@@ -59,6 +60,7 @@ export interface UnsplashItem extends ApiResponse {
       cover_photo: null;
       user: null;
     }[]
+    // ... more collections
   ];
   urls: {
     raw: string;
