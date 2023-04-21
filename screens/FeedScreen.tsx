@@ -1,4 +1,3 @@
-import * as React from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 import { Card } from "../components/Card";
@@ -49,7 +48,7 @@ export default function FeedScreen(params: any) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 15,
     flex: 1,
   },
   cards: {

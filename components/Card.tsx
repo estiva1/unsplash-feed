@@ -2,19 +2,14 @@ import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Share,
-  Button,
-  Image,
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
   Animated,
-  TouchableHighlight,
   GestureResponderEvent,
-  Dimensions,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../state/favorites/actions";
-import { fetchRequest } from "../state/images/actions";
 import { Text, View } from "../components/Themed";
 import { Ionicons } from "@expo/vector-icons";
 import { UnsplashItem } from "../state/images/types";
@@ -109,11 +104,11 @@ export function Card(props: {
           <Text style={styles.likes}>
             <Ionicons
               style={{ width: 20 }}
-              name="ios-thumbs-up"
+              name="thumbs-up-sharp"
               color={"#ffffff"}
               size={16}
             />
-            &nbsp; {/* forgive me father for I have sinned */}
+            &nbsp;
             {props.item.likes}
           </Text>
         )}
@@ -122,12 +117,6 @@ export function Card(props: {
           source={{ uri: getImageSrc(props.item) }}
           style={styles.image}
           onLoad={() => {
-            /**
-             * Tried to fix unmount component state updating issue
-             * but it seems its a bug in react native.
-             *
-             * I removed all useStates to try it out and the same error appeared.
-             */
             if (!isUnmounted) setLoading(false);
           }}
         >
@@ -181,16 +170,12 @@ const styles = StyleSheet.create({
     width: "90%",
     minHeight: 220,
     height: 220,
-    marginBottom: 20,
+    marginBottom: 15,
     backgroundColor: "lightgray",
-    borderWidth: 0,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 2,
     overflow: "hidden",
     shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 10,
+    shadowRadius: 7,
     shadowColor: "rgba(0, 0, 0, 0.5)",
     flex: 1,
     justifyContent: "center",
@@ -216,7 +201,6 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
     textShadowColor: "#000",
     textShadowRadius: 4,
-    fontStyle: "italic",
     color: "white",
   },
 

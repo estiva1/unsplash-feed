@@ -1,4 +1,3 @@
-import * as React from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { Card } from "../components/Card";
 import { useSelector } from "react-redux";

@@ -50,7 +50,6 @@ export interface UnsplashItem extends ApiResponse {
     };
   };
   current_user_collections: [
-    // The *current user's* collections that this photo belongs to.
     {
       id: number;
       title: string;
@@ -60,7 +59,6 @@ export interface UnsplashItem extends ApiResponse {
       cover_photo: null;
       user: null;
     }[]
-    // ... more collections
   ];
   urls: {
     raw: string;
