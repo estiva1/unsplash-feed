@@ -1,7 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from "@react-navigation/stack";
-import * as React from "react";
 
 import FeedScreen from "../screens/FeedScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
