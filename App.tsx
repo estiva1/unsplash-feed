@@ -7,7 +7,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 
-import configureStore from "./store/configureStore";
+import configureStore from "./store/store";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
